@@ -53,6 +53,7 @@ def decode (strs):
 
 
 def decodeNeetCode (str):
+
     res , i  = [] , 0
 
     while i < len(str):
@@ -60,6 +61,7 @@ def decodeNeetCode (str):
 
         while str[j] != "#":
             j+=1
+            
         uo = str[i:j]
         length = int(str[i:j])
         res.append(str [j+1:j+1+length])

@@ -1,39 +1,28 @@
+def is_alpha_numeric(str):
 
-def validPalidorme (str):
-    ptrl = 0
-    ptrr = len(str)-1
+    return ( ord('a') <= ord(str) <= ord('z') or
+        ord('A') <= ord(str) <= ord('Z') or
+        ord('0') <= ord(str) <= ord('9'))
 
-    while (ptrl >= ptrr):
+class Solution(object):
 
-        while not isalphaNumeric(str[ptrl]):
-            l+=1
-        
-        while not isalphaNumeric(str[ptrr]):
-            r-=1
+    def isPalindrome(self, s):
+        ptrl = 0
+        ptrr = len(s)-1
 
-        if str[ptrr] != str[ptrl]:
-            return False
-        
-        ptrl += 1
-        ptrr -=1
+        while (ptrl < ptrr):
             
+            while ptrl<ptrr and not is_alpha_numeric(s[ptrl]):
+                ptrl+=1
+            
+            while ptrr>ptrl and not is_alpha_numeric(s[ptrr]):
+                ptrr-=1
 
-    
-    return True
+            
+            if s[ptrr].lower() != s[ptrl].lower():
+                return False
 
+            ptrl +=1
+            ptrr -=1
 
-
-
-
-def isalphaNumeric (str):
-
-    return (
-        ord('A') < ord(str) < ord("Z") or
-        ord("a") < ord(str) < ord("z") or
-        ord('0') < ord(str) < ord('9')
-    )
-
-
-
-str = "A man, a plan, a canal: Panama"
-print ( validPalidorme (str))
+        return True
