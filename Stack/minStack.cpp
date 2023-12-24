@@ -40,7 +40,8 @@ class MinStack {
     }
     
     int getMin() {
-        
+
+        return stk_min.top();
     }
 };
 
