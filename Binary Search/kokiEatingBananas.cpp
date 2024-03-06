@@ -9,13 +9,15 @@ int minEatingSpeed(vector<int> piles, int h)
     int l =1;
     int r  = *max_element(piles.begin(),piles.end());
     int result = r;
-    int hours = 0;
+    
 
     while (l <= r) {
         int k = (l+r)/2;
         //calculate hours
+        long int hours = 0;
         for( int pile : piles){
-            hours += ceil(pile/k);
+    
+            hours += ceil((double) pile / k);
         } 
 
         if (hours <= h){
