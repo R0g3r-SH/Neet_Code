@@ -4,9 +4,7 @@
 using namespace std;
 bool searchMatrix(vector<vector<int>> matrix, int target)
 {
-    int totalElem = matrix.size() * matrix[0].size();
-    int emlperr = matrix[0].size();
-
+    
     int row = matrix.size() - 1;
     int col = matrix[0].size() - 1;
 
