@@ -3,60 +3,72 @@
 
 using namespace std;
 
-class TimeMap {
+class TimeMap
+{
 public:
-    TimeMap() {
-        
+    TimeMap()
+    {
     }
-    
-    void set(string key, string value, int timestamp) {
-        m[key].push_back({timestamp ,value});
-    }
-    
-    string get(string key, int timestamp) {
-        
-        if (m.find(key) == m.end()){
-            return "";
-        }
 
+    void set(string key, string value, int timestamp)
+    {
+        data[key].push_back({value, timestamp});
+    }
+
+    string get(string key, int timestamp)
+    {
+
+        vector<pair<string, int>> currdata = data[key];
         int l = 0;
-        int r = m[key].size()-1;
+        int r = currdata.size() - 1;
 
-        while (l <= r){
-            int mid = (l+r) /2;
-            int val = m[key][mid].first;
+        while (l <= r)
+        {
 
-            if (val == timestamp){
-                return m[key][mid].second;
+            int m = (l + r) / 2;
+            int currval = currdata[m].second;
+
+            if (currval == timestamp)
+            {
+                return currdata[m].first;
             }
-
-            else if ( val < timestamp ){
-                l = mid+1;
+            else if (currval > timestamp)
+            {
+                r = m - 1;
             }
-            else{
-                r = mid-1;
+            else
+            {
+                l = m + 1;
             }
-
         }
 
-        if (r >= 0) {
-            return m[key][r].second;
+        if (r >= 0)
+        {
+            return currdata[r].first;
         }
 
         return "";
-
-
-
-        
     }
 
-    private:
-        unordered_map<string,vector<pair<int,string>>> m;
+    unordered_map<string, vector<pair<string, int>>> data;
 };
 
-int main(){
+int main()
+{
+    // Create a TimeMap object
+    TimeMap tm;
+
+    // Set some key-value pairs with timestamps
+    tm.set("key1", "value1", 1);
+    tm.set("key1", "value2", 2);
+    tm.set("key1", "value3", 3);
+    tm.set("key1", "value3", 5);
 
 
+
+    // Get values for a key at different timestamps and print them
+
+    cout << "Value at timestamp 4: " << tm.get("key1", 4) << endl;
 
     return 0;
 }
