@@ -11,17 +11,22 @@ int maxProfit(vector<int> &prices)
         int lval = prices[l];
         int rval = prices[r];
 
-        if (lval < rval)
-        {
-            res = max(res, rval - lval);
-        }
-        else
-        {
+        if (lval < rval){
+
+            res = max(res,rval - lval);
+
+        }else{
             l = r;
         }
-        ++r;
+
+        r++;
+
+    
     }
+
     return res;
+    
+
 }
 
 int main()
