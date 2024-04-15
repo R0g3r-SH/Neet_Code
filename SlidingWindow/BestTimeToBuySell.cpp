@@ -4,29 +4,27 @@ using namespace std;
 
 int maxProfit(vector<int> &prices)
 {
-    int l = 0, r = 0, res = 0;
+    int l = 0, r = 1, res = 0;
 
     while (r < prices.size())
     {
         int lval = prices[l];
         int rval = prices[r];
 
-        if (lval < rval){
+        if (lval < rval)
+        {
 
-            res = max(res,rval - lval);
-
-        }else{
+            res = max(res, rval - lval);
+        }
+        else
+        {
             l = r;
         }
 
         r++;
-
-    
     }
 
     return res;
-    
-
 }
 
 int main()
