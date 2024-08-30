@@ -32,7 +32,8 @@ int main()
     vector<int> nums = {2, 7, 11, 15};
     int target = 9;
 
-    cout << twoSum(nums, target)[0], twoSum(nums, target)[1];
+    cout << "["<< twoSum(nums, target)[0] << "," << twoSum(nums, target)[1] << "]";
 
+ 
     return 0;
 }

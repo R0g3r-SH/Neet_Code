@@ -13,6 +13,7 @@
 #include <string>
 #include <cassert>
 #include <bitset>
-#include <array>    
+#include <array> 
+#include <string>   
 
 using namespace std;
