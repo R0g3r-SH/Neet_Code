@@ -9,31 +9,39 @@ int findMin(vector<int> &nums)
 
     
     while (l<=r) {
+        
       int m  =  (l+r)/2;
+
       int val  = nums[m];
 
       if (val >= res){
+
         l = m + 1;
 
       }else{
-        r  = m -1;
-      }
-      res = min(val, res);
 
-   
+        r  = m -1;
+
+      }
+
+      res = min(val, res);
 
     } 
   
     
-
   return res;
+
 }
 
 int main()
 {
+
+
     vector<int> nums = {3, 4, 5, 1, 2};
 
     cout << findMin(nums);
+    
     return 0;
 
-  }
+
+}
